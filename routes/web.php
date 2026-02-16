@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Все маршруты ведут на главный Blade-шаблон
+// Vue Router будет обрабатывать навигацию внутри приложения
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any', '.*');

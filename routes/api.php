@@ -4,6 +4,8 @@
 // use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\ReviewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +29,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user', [AuthController::class, 'user']);
+    Route::get('/settings', [SettingsController::class, 'show']);
+    Route::post('/settings', [SettingsController::class, 'store']);
+    Route::get('/reviews', [ReviewsController::class, 'index']);
 });
